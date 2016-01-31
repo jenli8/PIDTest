@@ -20,8 +20,6 @@ public class DrivePID extends PIDSubsystem {
 	
 	Encoder frontLeftEnc; 
 	Encoder frontRightEnc;
-	Encoder rearLeftEnc; 
-	Encoder rearRightEnc;
 	
 	public Talon frontLeft; 
 	public Talon frontRight; 
@@ -39,18 +37,12 @@ public class DrivePID extends PIDSubsystem {
     	super("DrivePID", 0.5,0.0,0.0); 
     	frontLeftEnc= new Encoder(0,1);
     	frontRightEnc= new Encoder(2,3); 
-    	rearLeftEnc= new Encoder(4,5); 
-    	rearRightEnc= new Encoder(6,7); 
     	
     	frontLeftEnc.setDistancePerPulse(0.0008); 
     	frontRightEnc.setDistancePerPulse(0.0008);
-    	rearLeftEnc.setDistancePerPulse(0.0008);
-    	rearRightEnc.setDistancePerPulse(0.0008);
     	
     	frontLeftEnc.startLiveWindowMode(); 
     	frontRightEnc.startLiveWindowMode();
-    	rearLeftEnc.startLiveWindowMode();
-    	rearRightEnc.startLiveWindowMode();
     	
     	FrontLeftPID= new PIDController(Kp, Ki, Kd,frontLeftEnc, frontLeft ); 
     	FrontRightPID= new PIDController(Kp, Ki, Kd, frontRightEnc, frontRight); 
